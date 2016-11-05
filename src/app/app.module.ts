@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RestaurantComponent } from './restaurant/restaurant.component';
+import { RestaurantService } from './services';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { RestaurantComponent } from './restaurant/restaurant.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [RestaurantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

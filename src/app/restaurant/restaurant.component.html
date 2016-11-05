@@ -1,1 +1,6 @@
-<h2 *ngIf="restaurant">{{restaurant.name}} - {{restaurant.cuisineName}}</h2>
+<div *ngIf="restaurant" class="restaurant"> 
+<h2 >{{restaurant.name}} - {{restaurant.cuisineName}}</h2>
+	<span class="average">Average Rating:{{restaurant.averageRating.toFixed(2)}}</span><br/>
+	<span class="review">Number of reviews: {{restaurant.reviewCount}}</span>
+
+</div>

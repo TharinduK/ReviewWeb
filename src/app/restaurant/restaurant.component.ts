@@ -17,8 +17,9 @@ export class RestaurantComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.restaurant = this.restSvc.getRestaurant();
+    this.restSvc.getRestaurant().then(rest => this.restaurant = rest);
 
   }
 
 }
+
