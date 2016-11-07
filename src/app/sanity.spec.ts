@@ -6,7 +6,7 @@ describe('Universal Truths', () => {
     });
 
     it('should validate bool', () => {
-        expect(1 == 1).toBe(true);
+        expect(1 === 1).toBe(true);
     });
 
     it('passes if subject is null', function() {
@@ -23,6 +23,6 @@ describe('Universal Truths', () => {
 
     xit('shoudl skip this', () => {
         expect(4).toEqual(40);
-    })
+    });
 
-}); 
+});

@@ -13,8 +13,8 @@ export class RestaurantComponent implements OnInit {
   public restaurant: Restaurant;
 
   constructor(
-    private restSvc:RestaurantService
-    ) { }
+    private restSvc: RestaurantService
+  ) { }
 
   ngOnInit() {
     this.restSvc.getRestaurant().then(rest => this.restaurant = rest);

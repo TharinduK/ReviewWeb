@@ -5,18 +5,18 @@ import { DebugElement } from '@angular/core';
 
 import { RestaurantComponent } from './restaurant.component';
 import { Restaurant } from '../viewModels';
-import { RestaurantService, RestaurantServiceStub } from '../services';
+import { RestaurantService } from '../services';
 
 describe('RestaurantComponent', () => {
   let component: RestaurantComponent;
   let fixture: ComponentFixture<RestaurantComponent>;
 
-  let expectedRestName = "Test Rest Name";
-  let expectedCusineName = "Test Cusine Name";
+  let expectedRestName = 'Test Rest Name';
+  let expectedCusineName = 'Test Cusine Name';
   let expectedReviewCount = 33;
   let inputAverage = 3.449765;
   let expectedAverage = 3.45;
-  var spy;
+  let spy;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -32,11 +32,11 @@ describe('RestaurantComponent', () => {
     fixture = TestBed.createComponent(RestaurantComponent);
     component = fixture.componentInstance;
 
-    //service injected to the component
+    // service injected to the component
     let restSvc = fixture.debugElement.injector.get(RestaurantService);
 
-    //setup get restuarant method
-    var rest = new Restaurant();
+    // setup get restuarant method
+    let rest = new Restaurant();
     rest.name = expectedRestName;
     rest.cuisineName = expectedCusineName;
     rest.averageRating = inputAverage;
@@ -70,18 +70,20 @@ describe('RestaurantComponent', () => {
   it('should show restaurant after getRestaurant promise (async)', async(() => {
     fixture.detectChanges();
 
-    //after returing value 
+    // after returing value 
     fixture.whenStable().then(() => {
       fixture.detectChanges();
       let de = fixture.debugElement.nativeElement;
       let el = de.querySelector('h2');
-      //let elavg = de.querySelector(By.css("average"));
-      //let elcount = de.querySelector(By.css('review'));
 
       expect(el.textContent).toContain(expectedRestName);
       expect(el.textContent).toContain(expectedCusineName);
-     // expect(elavg.TextContent).toContain(expectedAverage);
-     // expect(elcount.TextContent).toContain(expectedReviewCount);
+
+      let elavg = fixture.debugElement.query(By.css('average'));
+      expect(elavg.nativeElement.TextContent).toContain(expectedAverage);
+
+      let elcount = fixture.debugElement.query(By.css('review'));
+      expect(elcount.nativeElement.TextContent).toContain(expectedReviewCount);
     });
   }));
 

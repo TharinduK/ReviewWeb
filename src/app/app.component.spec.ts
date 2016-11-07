@@ -2,8 +2,8 @@
 
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { RestaurantComponent } from './restaurant'
-import { RestaurantService } from './services'
+import { RestaurantComponent } from './restaurant';
+import { RestaurantService } from './services';
 
 describe('App: ReviewWeb', () => {
   beforeEach(() => {
@@ -12,7 +12,7 @@ describe('App: ReviewWeb', () => {
         AppComponent,
         RestaurantComponent
       ],
-      providers:[RestaurantService]
+      providers: [RestaurantService]
     });
   });
 

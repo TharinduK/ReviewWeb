@@ -5,6 +5,6 @@ export class Restaurant {
     public cuisineId: number;
     public cuisineName: string;
 
-    public averageRating: number
+    public averageRating: number;
     public reviewCount: number;
 }
